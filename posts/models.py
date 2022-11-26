@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Hashtag(models.Model):
     title = models.CharField(max_length=50)
-    posts = models.ManyToManyField('Post', null=True, blank=True)
+    posts = models.ManyToManyField('Post', blank=True)
 
     def __str__(self):
         return self.title
@@ -17,7 +17,7 @@ class Post(models.Model):
     created_time = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(blank=True, null=True)
     likes = models.IntegerField(default=0)
-    hashtags = models.ManyToManyField(Hashtag, null=True, blank=True)
+    hashtags = models.ManyToManyField(Hashtag, blank=True)
 
     def __str__(self):
         return f'{self.title}'

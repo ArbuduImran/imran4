@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Hashtag, Post, Comment
 from .forms import PostCreateForm, CommentCreateForm
 
+
 # Create your views here.
 def hashtags_view(request):
     if request.method == 'GET':
@@ -54,6 +55,7 @@ def post_detail_view(request, **kwargs):
             }
 
             return render(request, 'posts/post_detail.html', context=data)
+
 
 def post_create_view(request):
     if request.method == 'GET':
